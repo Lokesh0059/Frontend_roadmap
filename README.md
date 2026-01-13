@@ -1,2 +1,2 @@
 # Frontend_roadmap
-CV.html
+(https://roadmap.sh/projects/single-page-cv)
