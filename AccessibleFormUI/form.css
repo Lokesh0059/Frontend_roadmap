@@ -1,0 +1,433 @@
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    background: white;
+    border: 3px solid #1a1a1a;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   FORM SECTION
+   ======================================== */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Form Groups */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Labels */
+.form-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* Input Styles */
+.form-input {
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 2px solid #1a1a1a;
+    border-radius: 6px;
+    background: white;
+    color: #1a1a1a;
+    transition: all 0.2s ease;
+    outline: none;
+    /* WCAG AA Color Contrast: #1a1a1a on white = 13.5:1 */
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+/* Focus State - Critical for accessibility */
+.form-input:focus {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+}
+
+/* Keyboard navigation visible focus */
+.form-input:focus-visible {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Invalid State */
+.form-input.is-invalid {
+    border-color: #d32f2f;
+    background: #fff5f5;
+}
+
+.form-input.is-invalid:focus {
+    outline-color: #d32f2f;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.1);
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .form-input {
+    padding-right: 44px;
+}
+
+/* Password Toggle Button */
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+    border-radius: 4px;
+}
+
+.toggle-password:hover {
+    color: #1a1a1a;
+}
+
+/* Keyboard focus for password toggle */
+.toggle-password:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.toggle-password:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.icon-eye {
+    width: 20px;
+    height: 20px;
+}
+
+/* Error Messages */
+.error-message {
+    font-size: 13px;
+    color: #d32f2f;
+    margin-top: 4px;
+    display: block;
+    font-weight: 500;
+    /* WCAG AA Color Contrast: #d32f2f on white = 4.5:1 */
+}
+
+.error-message:empty {
+    display: none;
+}
+
+/* Form Hints */
+.form-hint {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Submit Button */
+.submit-button {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 12px;
+    /* WCAG AA Color Contrast: white on #1a1a1a = 13.5:1 */
+}
+
+.submit-button:hover {
+    background: #333;
+}
+
+.submit-button:focus {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.submit-button:focus-visible {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+.submit-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Profile Completeness Card */
+.completeness-card {
+    background: #f0f0f0;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.progress-circle {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 16px;
+}
+
+.circle-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-background {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 8;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #1a1a1a;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 282.7;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.completeness-card h3 {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+/* Tasks Card */
+.tasks-card {
+    background: #f0f0f0;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.tasks-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    padding: 8px 0;
+}
+
+.task-text {
+    font-size: 14px;
+    color: #1a1a1a;
+    display: block;
+}
+
+.task-text.strikethrough {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-item.completed .task-text {
+    opacity: 0.6;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 32px;
+    }
+
+    .completeness-card,
+    .tasks-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        border-radius: 12px;
+        padding: 16px;
+        gap: 24px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .form-input {
+        padding: 10px 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .submit-button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .progress-text {
+        font-size: 24px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================================== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    .form-input {
+        border-width: 3px;
+    }
+
+    .form-label {
+        font-weight: 700;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+
+    .container {
+        background: #2a2a2a;
+        border-color: #ffffff;
+    }
+
+    .form-input {
+        background: #333;
+        color: #ffffff;
+        border-color: #555;
+    }
+
+    .form-input::placeholder {
+        color: #888;
+    }
+
+    .form-input:focus {
+        border-color: #66b3ff;
+    }
+
+    .form-label {
+        color: #ffffff;
+    }
+
+    .error-message {
+        color: #ff6b6b;
+    }
+
+    .form-hint {
+        color: #aaa;
+    }
+
+    .completeness-card,
+    .tasks-card {
+        background: #333;
+        color: #ffffff;
+    }
+
+    .circle-background {
+        stroke: #444;
+    }
+
+    .circle-progress {
+        stroke: #ffffff;
+    }
+
+    .task-text.strikethrough {
+        color: #666;
+    }
+}

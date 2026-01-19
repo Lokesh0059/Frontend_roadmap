@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form UI - Update Profile</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <!-- Main Form Section -->
+            <form class="form-section" novalidate>
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="What should we call you?"
+                        class="form-input"
+                        aria-required="true"
+                    />
+                    <div id="fullNameError" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="john@doe.com"
+                        class="form-input is-invalid"
+                        aria-required="true"
+                        aria-invalid="true"
+                        aria-describedby="emailError"
+                    />
+                    <div id="emailError" class="error-message" role="alert">
+                        Email is already taken
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Enter Password</label>
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="••••••••"
+                            class="form-input"
+                            aria-required="true"
+                            aria-describedby="passwordHint"
+                        />
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                            data-target="password"
+                            tabindex="0"
+                        >
+                            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="passwordHint" class="form-hint"></div>
+                    <div id="passwordError" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="••••••••"
+                            class="form-input"
+                            aria-required="true"
+                            aria-describedby="confirmPasswordHint"
+                        />
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                            data-target="confirmPassword"
+                            tabindex="0"
+                        >
+                            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="confirmPasswordHint" class="form-hint"></div>
+                    <div id="confirmPasswordError" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-button">Update Profile</button>
+            </form>
+
+            <!-- Sidebar - Profile Completeness & Tasks -->
+            <aside class="sidebar">
+                <!-- Profile Completeness Circle -->
+                <div class="completeness-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 100 100" class="circle-svg">
+                            <circle cx="50" cy="50" r="45" class="circle-background"></circle>
+                            <circle cx="50" cy="50" r="45" class="circle-progress" style="stroke-dashoffset: 27.5;"></circle>
+                        </svg>
+                        <div class="progress-text">65%</div>
+                    </div>
+                    <h3>Profile Completeness</h3>
+                </div>
+
+                <!-- Tasks Checklist -->
+                <div class="tasks-card">
+                    <ul class="tasks-list">
+                        <li class="task-item completed">
+                            <span class="task-text strikethrough">Create Account</span>
+                        </li>
+                        <li class="task-item completed">
+                            <span class="task-text strikethrough">Update Roadmap Progress</span>
+                        </li>
+                        <li class="task-item completed">
+                            <span class="task-text strikethrough">Setup Public Profile</span>
+                        </li>
+                        <li class="task-item">
+                            <span class="task-text">Complete your first project</span>
+                        </li>
+                        <li class="task-item">
+                            <span class="task-text">Invite your friends</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="form.js"></script>
+</body>
+</html>
