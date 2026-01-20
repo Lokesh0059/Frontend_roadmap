@@ -1,0 +1,551 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: white;
+    animation: fadeInDown 0.8s ease;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    word-spacing: 0.1em;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+.nav-item:hover {
+    transform: translateY(-4px);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: 0.5px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #667eea;
+    transform: scale(1.05);
+}
+
+.nav-link:active {
+    transform: scale(0.98);
+}
+
+
+.tooltip {
+    position: absolute;
+    bottom: 125%;  /* Position above the nav-item */
+    left: 50%;     /* Horizontal center alignment */
+    transform: translateX(-50%) translateY(10px) scale(0.95);
+    
+    /* VISIBILITY STATES */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    /* STYLING */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    
+    /* LAYERING */
+    z-index: 1000;
+    
+    /* VISUAL EFFECTS */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35),
+                0 0 1px rgba(102, 126, 234, 0.5);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    
+    /* SMOOTH TRANSITIONS - CUBIC BEZIER FOR NATURAL MOTION */
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* HOVER STATE - TOOLTIP REVEALS */
+.nav-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;        
+    transform: translateX(-50%);
+  
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #1a1a2e;
+    
+    
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.2), transparent);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+
+
+.nav-item:hover .tooltip::after {
+    border-top-color: #1a1a2e;
+    animation: arrowBounce 0.6s ease;
+}
+
+/* Arrow bounce animation */
+@keyframes arrowBounce {
+    0% {
+        transform: translateX(-50%) translateY(-5px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) translateY(2px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes shimmer {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(50px, 50px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.nav-item:nth-child(1) .tooltip {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4),
+                0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.nav-item:nth-child(1) .tooltip::after {
+    border-top-color: #667eea;
+}
+
+.nav-item:nth-child(2) .tooltip {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4),
+                0 0 20px rgba(245, 87, 108, 0.3);
+}
+
+.nav-item:nth-child(2) .tooltip::after {
+    border-top-color: #f5576c;
+}
+
+.nav-item:nth-child(3) .tooltip {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: #fff;
+    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4),
+                0 0 20px rgba(79, 172, 254, 0.3);
+}
+
+.nav-item:nth-child(3) .tooltip::after {
+    border-top-color: #4facfe;
+}
+
+/* ============================================
+   ADVANCED POSITIONING DEMO - DIFFERENT DIRECTIONS
+   ============================================ */
+
+/* Example: Tooltip to the left */
+.tooltip-left {
+    bottom: auto;
+    left: auto;
+    right: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%) translateX(20px) scale(0.95);
+    white-space: nowrap;
+}
+
+.tooltip-left::after {
+    top: 50%;
+    left: auto;
+    right: -8px;
+    bottom: auto;
+    transform: translateY(-50%);
+    border-left: 8px solid transparent;
+    border-right: none;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #1a1a2e;
+}
+
+/* Example: Tooltip to the right */
+.tooltip-right {
+    bottom: auto;
+    left: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-20px) scale(0.95);
+    white-space: nowrap;
+}
+
+.tooltip-right::after {
+    top: 50%;
+    left: -8px;
+    right: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+    border-right: 8px solid transparent;
+    border-left: none;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #1a1a2e;
+}
+
+/* Example: Tooltip below */
+.tooltip-bottom {
+    bottom: auto;
+    top: calc(100% + 20px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px) scale(0.95);
+}
+
+.tooltip-bottom::after {
+    top: -8px;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 8px solid #1a1a2e;
+}
+
+/* Hover reveal for directional tooltips */
+.nav-item:hover .tooltip-left,
+.nav-item:hover .tooltip-right {
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+.nav-item:hover .tooltip-bottom {
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .nav-list {
+        gap: 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .navbar {
+        padding: 1.5rem 1rem;
+    }
+
+    .tooltip {
+        font-size: 0.85rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .tooltip::after {
+        border-left-width: 6px;
+        border-right-width: 6px;
+        border-top-width: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-list {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .tooltip {
+        white-space: normal;
+        max-width: 200px;
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        bottom: 110%;
+    }
+
+    .tooltip::after {
+        border-left-width: 5px;
+        border-right-width: 5px;
+        border-top-width: 5px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & USER PREFERENCES
+   ============================================ */
+
+/* Keyboard focus indication */
+.nav-link:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.nav-item:focus-within .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: more) {
+    .tooltip {
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #667eea;
+    }
+
+    .nav-link {
+        border: 2px solid transparent;
+        border-radius: 4px;
+    }
+
+    .nav-link:hover {
+        border-color: #667eea;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .tooltip,
+    .nav-link,
+    .nav-item,
+    .header {
+        transition: none;
+        animation: none;
+    }
+
+    .nav-link::before {
+        display: none;
+    }
+
+    .nav-item:hover .tooltip {
+        animation: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #0f0f2e 0%, #1a1a3e 100%);
+    }
+
+    .navbar {
+        background: #1a1a2e;
+        color: white;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .header {
+        color: white;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .navbar,
+    .header {
+        page-break-inside: avoid;
+    }
+
+    .tooltip {
+        display: none;
+    }
+}
+
+/* ============================================
+   ADVANCED EFFECTS - RIPPLE ON CLICK
+   ============================================ */
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(102, 126, 234, 0.3);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.nav-item:active::before {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
