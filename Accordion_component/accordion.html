@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Component</title>
+    <link rel="stylesheet" href="accordion.css">
+</head>
+<body>
+    <div class="container">
+        <div class="accordion-wrapper">
+            <h1 class="accordion-title">Frequently Asked Questions</h1>
+            <p class="accordion-subtitle">Click on any question to reveal the answer</p>
+
+            <div class="accordion">
+                <!-- Accordion Item 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-1">
+                        <span class="accordion-header-text">What is Frontend Development?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-1" role="region" aria-labelledby="header-1">
+                        <div class="accordion-content">
+                            <p>Frontend development is the practice of producing HTML, CSS, and JavaScript for a website or web application so that a user can see and interact with them directly. The objective is to create a functional and aesthetically pleasing user interface that enhances user experience and engagement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-2">
+                        <span class="accordion-header-text">What are the main technologies in Frontend Development?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-2" role="region" aria-labelledby="header-2">
+                        <div class="accordion-content">
+                            <p>The core technologies of frontend development are:</p>
+                            <ul>
+                                <li><strong>HTML:</strong> Provides the structure and content of web pages</li>
+                                <li><strong>CSS:</strong> Handles styling, layout, and responsive design</li>
+                                <li><strong>JavaScript:</strong> Adds interactivity and dynamic functionality</li>
+                                <li><strong>Frameworks:</strong> React, Vue, Angular for building complex applications</li>
+                                <li><strong>Tools:</strong> Webpack, Vite, npm for development and bundling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-3">
+                        <span class="accordion-header-text">How to make a website responsive?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-3" role="region" aria-labelledby="header-3">
+                        <div class="accordion-content">
+                            <p>To create a responsive website, follow these best practices:</p>
+                            <ul>
+                                <li>Use flexible grid layouts with CSS Grid and Flexbox</li>
+                                <li>Implement media queries for different screen sizes</li>
+                                <li>Use relative units (em, rem, %) instead of fixed pixels</li>
+                                <li>Optimize images for different devices and resolutions</li>
+                                <li>Test on various devices and screen sizes</li>
+                                <li>Implement mobile-first design approach</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-4">
+                        <span class="accordion-header-text">What is CSS Flexbox?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-4" role="region" aria-labelledby="header-4">
+                        <div class="accordion-content">
+                            <p>CSS Flexbox is a one-dimensional layout module that makes it easy to design flexible responsive layout structure. It provides an efficient way to arrange, distribute, and align elements in a container, even when their size is unknown or dynamic. Key features include:</p>
+                            <ul>
+                                <li>Main axis and cross axis alignment</li>
+                                <li>Flexible sizing with flex-grow, flex-shrink, flex-basis</li>
+                                <li>Wrapping content to multiple lines</li>
+                                <li>Space distribution between and around items</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-5">
+                        <span class="accordion-header-text">What is JavaScript and why is it important?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-5" role="region" aria-labelledby="header-5">
+                        <div class="accordion-content">
+                            <p>JavaScript is a versatile programming language that adds interactivity to web pages. It's important because it:</p>
+                            <ul>
+                                <li>Enables dynamic content updates without page reload</li>
+                                <li>Allows form validation and user input handling</li>
+                                <li>Supports event handling for user interactions</li>
+                                <li>Powers modern web frameworks and libraries</li>
+                                <li>Can be used for both frontend and backend development (Node.js)</li>
+                                <li>Provides APIs for accessing browser features</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 6 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false" aria-controls="panel-6">
+                        <span class="accordion-header-text">What is the difference between margin and padding?</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel" id="panel-6" role="region" aria-labelledby="header-6">
+                        <div class="accordion-content">
+                            <p><strong>Margin and Padding</strong> are both CSS properties but serve different purposes:</p>
+                            <ul>
+                                <li><strong>Padding:</strong> Creates space inside an element, between the content and the border</li>
+                                <li><strong>Margin:</strong> Creates space outside an element, between the border and other elements</li>
+                                <li>Padding is part of the element's background, while margin is transparent</li>
+                                <li>Both accept values in pixels, em, rem, or percentages</li>
+                                <li>Use padding to give content breathing room</li>
+                                <li>Use margin to separate elements from each other</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="accordion.js"></script>
+</body>
+</html>
