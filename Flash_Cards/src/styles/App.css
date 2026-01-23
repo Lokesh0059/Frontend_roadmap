@@ -1,0 +1,204 @@
+/* App Component Styles */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  animation: slideUp 0.6s ease-out;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.app-subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.95;
+  letter-spacing: 0.5px;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  min-height: 400px;
+}
+
+/* Keyboard Hints */
+.keyboard-hints {
+  text-align: center;
+  color: white;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  animation: fadeIn 0.8s ease-out 0.4s both;
+}
+
+.keyboard-hints kbd {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 0 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Mode Switch Button */
+.mode-switch-button {
+  align-self: center;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  margin-top: 20px;
+}
+
+.mode-switch-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mode-switch-button:active {
+  transform: translateY(0);
+}
+
+.app-quiz .mode-switch-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  margin-top: 0;
+  align-self: auto;
+  background: rgba(102, 126, 234, 0.9);
+  border-color: rgba(102, 126, 234, 1);
+  z-index: 100;
+}
+
+.app-quiz .mode-switch-button:hover {
+  background: rgba(102, 126, 234, 1);
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  color: white;
+  opacity: 0.8;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.95rem;
+}
+
+.app-footer strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app {
+    padding: 20px 15px;
+  }
+
+  .app-title {
+    font-size: 1.8rem;
+  }
+
+  .app-subtitle {
+    font-size: 1rem;
+  }
+
+  .app-main {
+    gap: 30px;
+  }
+
+  .flashcard-container {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 15px 10px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .app-header {
+    margin-bottom: 20px;
+  }
+
+  .app-main {
+    gap: 20px;
+  }
+
+  .flashcard-container {
+    min-height: 300px;
+  }
+
+  .keyboard-hints {
+    font-size: 0.85rem;
+  }
+
+  .keyboard-hints kbd {
+    padding: 3px 6px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .app-footer {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .keyboard-hints {
+    opacity: 0.7;
+  }
+
+  .keyboard-hints kbd {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}

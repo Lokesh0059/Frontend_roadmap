@@ -1,0 +1,231 @@
+/* Navigation Component Styles */
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: slideUp 0.6s ease-out 0.1s both;
+}
+
+.nav-button {
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-button:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state */
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-button:disabled:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button specific styling */
+.nav-button.prev-button {
+  order: 1;
+}
+
+.nav-button.reset-button {
+  order: 2;
+  background: rgba(255, 107, 107, 0.15);
+  border-color: rgba(255, 107, 107, 1);
+  color: white;
+}
+
+.nav-button.reset-button:hover:not(:disabled) {
+  background: rgba(255, 107, 107, 0.25);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-button.next-button {
+  order: 3;
+}
+
+/* Button icon/arrow styling */
+.nav-button::after {
+  content: attr(data-label);
+  position: relative;
+  z-index: 2;
+}
+
+/* Keyboard focus state */
+.nav-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .navigation {
+    gap: 15px;
+  }
+
+  .nav-button {
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    letter-spacing: 0.6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigation {
+    gap: 10px;
+  }
+
+  .nav-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Button label display */
+.button-label {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tooltip for disabled buttons */
+.nav-button[aria-label*='disabled'] {
+  cursor: not-allowed;
+}
+
+/* Accessibility - Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-button {
+    transition: none;
+  }
+
+  .nav-button::before {
+    animation: none;
+    transition: none;
+  }
+
+  .nav-button:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .nav-button:active:not(:disabled) {
+    transform: none;
+  }
+
+  .navigation {
+    animation: none;
+  }
+}
+
+/* Dark mode specific */
+@media (prefers-color-scheme: dark) {
+  .nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-button.reset-button {
+    background: rgba(255, 107, 107, 0.1);
+  }
+
+  .nav-button.reset-button:hover:not(:disabled) {
+    background: rgba(255, 107, 107, 0.2);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .nav-button {
+    border-width: 3px;
+  }
+
+  .nav-button:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navigation {
+    display: none;
+  }
+}
+
+/* Animation for button appearance */
+@keyframes buttonAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-button {
+  animation: buttonAppear 0.5s ease-out;
+}
+
+.nav-button.prev-button {
+  animation-delay: 0s;
+}
+
+.nav-button.reset-button {
+  animation-delay: 0.1s;
+}
+
+.nav-button.next-button {
+  animation-delay: 0.2s;
+}
