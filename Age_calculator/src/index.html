@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - Calculate Your Exact Age</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-wrapper">
+            <div class="calculator-card">
+                <!-- Header -->
+                <div class="header">
+                    <h1 class="title">Age Calculator</h1>
+                    <p class="subtitle">Find out your exact age in years, months, and days</p>
+                </div>
+
+                <!-- Form Section -->
+                <form id="ageForm" class="form-container">
+                    <div class="form-group">
+                        <label for="birthdatePicker" class="form-label">
+                            <svg class="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Enter your birth date:
+                        </label>
+                        <input
+                            type="text"
+                            id="birthdatePicker"
+                            class="form-input"
+                            placeholder="Select your birth date"
+                            required
+                            aria-label="Birth date picker"
+                        />
+                        <div id="errorMessage" class="error-message"></div>
+                    </div>
+
+                    <button type="submit" class="btn-calculate">
+                        <span>Calculate Age</span>
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Results Section -->
+                <div id="resultsContainer" class="results-container hidden">
+                    <div class="results-box">
+                        <h2 class="results-title">Your Age</h2>
+                        
+                        <div class="age-display">
+                            <div class="age-item">
+                                <span class="age-value" id="ageYears">0</span>
+                                <span class="age-label">Year<span id="yearsPlural">s</span></span>
+                            </div>
+                            <div class="age-divider"></div>
+                            <div class="age-item">
+                                <span class="age-value" id="ageMonths">0</span>
+                                <span class="age-label">Month<span id="monthsPlural">s</span></span>
+                            </div>
+                            <div class="age-divider"></div>
+                            <div class="age-item">
+                                <span class="age-value" id="ageDays">0</span>
+                                <span class="age-label">Day<span id="daysPlural">s</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Additional Info -->
+                        <div class="additional-info">
+                            <div class="info-row">
+                                <span class="info-label">Birth Date:</span>
+                                <span class="info-value" id="displayBirthDate">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Total Days Lived:</span>
+                                <span class="info-value" id="totalDays">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Total Hours Lived:</span>
+                                <span class="info-value" id="totalHours">-</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Next Birthday:</span>
+                                <span class="info-value" id="nextBirthday">-</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="resetBtn" class="btn-reset">
+                            Calculate Another Age
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="features-section">
+                <h3 class="features-title">Features</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <h4>Accurate Calculation</h4>
+                        <p>Precise age calculation using Luxon library</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M3 21v-5h5"></path>
+                        </svg>
+                        <h4>Real-time Validation</h4>
+                        <p>Instant feedback on date validity</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="9"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                        <h4>Responsive Design</h4>
+                        <p>Works perfectly on all devices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
