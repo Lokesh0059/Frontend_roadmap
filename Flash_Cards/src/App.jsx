@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FlashCard from './components/FlashCard';
 import ProgressBar from './components/ProgressBar';
 import Navigation from './components/Navigation';
-import Quiz from './components/Quiz';
 import { flashcards } from './data/flashcards';
 import './styles/App.css';
 
