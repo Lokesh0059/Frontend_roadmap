@@ -1,0 +1,35 @@
+.error-message {
+  background: #ff6b6b;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.error-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .error-message {
+    padding: 12px 15px;
+  }
+
+  .error-icon {
+    font-size: 1.2rem;
+  }
+
+  .error-message p {
+    font-size: 0.95rem;
+  }
+}

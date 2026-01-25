@@ -1,0 +1,133 @@
+.hourly-forecast {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hours-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 12px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.hour-card {
+  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 15px 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.hour-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+}
+
+.hour-card.current {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.hour-time {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.hour-card.current .hour-time {
+  color: white;
+}
+
+.current-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.current-badge {
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.hour-icon {
+  font-size: 1.8rem;
+  margin: 5px 0;
+}
+
+.hour-temp {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 8px;
+}
+
+.hour-card.current .hour-temp {
+  color: white;
+}
+
+.hour-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hour-wind,
+.hour-rain {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.hour-card.current .hour-wind,
+.hour-card.current .hour-rain {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+  .hourly-forecast {
+    padding: 20px;
+  }
+
+  .forecast-title {
+    font-size: 1.2rem;
+  }
+
+  .hours-container {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 10px;
+  }
+
+  .hour-card {
+    padding: 12px 8px;
+  }
+
+  .hour-icon {
+    font-size: 1.5rem;
+  }
+
+  .hour-temp {
+    font-size: 0.95rem;
+  }
+
+  .hour-wind,
+  .hour-rain {
+    font-size: 0.7rem;
+  }
+}
