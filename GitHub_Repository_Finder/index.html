@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Repository Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Repository Finder</h1>
+        
+        <!-- Empty State -->
+        <div id="emptyState" class="state active">
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">🔍</div>
+                    <h2>GitHub Repository Finder</h2>
+                </div>
+                <div class="card-content">
+                    <label for="languageSelect">Select a Language</label>
+                    <select id="languageSelect">
+                        <option value="">Choose a language...</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="csharp">C#</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="typescript">TypeScript</option>
+                        <option value="php">PHP</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="swift">Swift</option>
+                    </select>
+                    <p class="empty-message">Please select a language</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="state">
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">🔍</div>
+                    <h2>GitHub Repository Finder</h2>
+                </div>
+                <div class="card-content">
+                    <label for="languageSelect2">JavaScript</label>
+                    <select id="languageSelect2" disabled>
+                        <option value="">JavaScript</option>
+                    </select>
+                    <div class="loading-spinner"></div>
+                    <p class="loading-message">Loading, please wait..</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="state">
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">🔍</div>
+                    <h2>GitHub Repository Finder</h2>
+                </div>
+                <div class="card-content">
+                    <label for="languageSelect3">JavaScript</label>
+                    <select id="languageSelect3" disabled>
+                        <option value="">JavaScript</option>
+                    </select>
+                    <div class="error-box">
+                        <p class="error-message">Error fetching repositories</p>
+                    </div>
+                    <button id="retryBtn" class="retry-btn">Click to retry</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="successState" class="state">
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">🔍</div>
+                    <h2>GitHub Repository Finder</h2>
+                </div>
+                <div class="card-content">
+                    <label for="languageSelect4">JavaScript</label>
+                    <select id="languageSelect4" disabled>
+                        <option value="">JavaScript</option>
+                    </select>
+                    <div id="repositoryInfo" class="repository-info">
+                        <!-- Repository details will be inserted here -->
+                    </div>
+                </div>
+            </div>
+            <button id="refreshBtn" class="refresh-btn">Refresh</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
