@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dropdown Menu</title>
+    <link rel="stylesheet" href="dropdown.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom Dropdown Menu</h1>
+        
+        <!-- Default state / no item selected -->
+        <div class="demo-section">
+            <h2>Default state (no selection)</h2>
+            <div class="dropdown" id="dropdown1">
+                <button class="dropdown-trigger" id="trigger1">
+                    <span class="dropdown-text">Select an Item</span>
+                    <span class="dropdown-icon">▼</span>
+                </button>
+                <div class="dropdown-menu" id="menu1">
+                    <div class="dropdown-item" data-value="first">First item</div>
+                    <div class="dropdown-item" data-value="second">Second item</div>
+                    <div class="dropdown-item" data-value="third">Third item</div>
+                    <div class="dropdown-item" data-value="fourth">Fourth item</div>
+                    <div class="dropdown-item" data-value="fifth">Fifth item</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open state (no selection) -->
+        <div class="demo-section">
+            <h2>Open state (no selection)</h2>
+            <div class="dropdown" id="dropdown2">
+                <button class="dropdown-trigger" id="trigger2">
+                    <span class="dropdown-text">Select an Item</span>
+                    <span class="dropdown-icon">▲</span>
+                </button>
+                <div class="dropdown-menu" id="menu2">
+                    <div class="dropdown-item" data-value="first">First item</div>
+                    <div class="dropdown-item" data-value="second">Second item</div>
+                    <div class="dropdown-item" data-value="third">Third item</div>
+                    <div class="dropdown-item" data-value="fourth">Fourth item</div>
+                    <div class="dropdown-item" data-value="fifth">Fifth item</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Open state (with selection) -->
+        <div class="demo-section">
+            <h2>Open state (with selection)</h2>
+            <div class="dropdown" id="dropdown3">
+                <button class="dropdown-trigger" id="trigger3">
+                    <span class="dropdown-text">Third item</span>
+                    <span class="dropdown-icon">▲</span>
+                </button>
+                <div class="dropdown-menu" id="menu3">
+                    <div class="dropdown-item" data-value="first">First item</div>
+                    <div class="dropdown-item" data-value="second">Second item</div>
+                    <div class="dropdown-item selected" data-value="third">Third item</div>
+                    <div class="dropdown-item" data-value="fourth">Fourth item</div>
+                    <div class="dropdown-item" data-value="fifth">Fifth item</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Dropdown (Main Demo) -->
+        <div class="demo-section">
+            <h2>Interactive Dropdown</h2>
+            <div class="dropdown" id="dropdown4">
+                <button class="dropdown-trigger" id="trigger4">
+                    <span class="dropdown-text">Select an Item</span>
+                    <span class="dropdown-icon">▼</span>
+                </button>
+                <div class="dropdown-menu" id="menu4">
+                    <div class="dropdown-item" data-value="first">First item</div>
+                    <div class="dropdown-item" data-value="second">Second item</div>
+                    <div class="dropdown-item" data-value="third">Third item</div>
+                    <div class="dropdown-item" data-value="fourth">Fourth item</div>
+                    <div class="dropdown-item" data-value="fifth">Fifth item</div>
+                </div>
+            </div>
+            <p class="selection-info" id="info4">No item selected</p>
+        </div>
+    </div>
+
+    <script src="dropdown.js"></script>
+</body>
+</html>
